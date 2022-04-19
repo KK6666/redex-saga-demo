@@ -1,14 +1,17 @@
-import { CHANGE_INPUT_VALUE, ADD_ITEM, DELETE_ITEM } from './actionType'
+import { CHANGE_INPUT_VALUE, ADD_ITEM, DELETE_ITEM, GET_LIST } from './actionType'
 
 const defaultState = {
   inputValue: 'Write Something',
   list: [
-    '早上4点起床，锻炼身体',
-    '中午下班游泳一小时'
   ]
 }
 export default (state = defaultState, action) => {
   console.log('state: ', state, action);
+  if (action.type === GET_LIST) {
+    let newState = JSON.parse(JSON.stringify(state))
+    newState.list = action.value
+    return newState
+  }
   if (action.type === CHANGE_INPUT_VALUE) {
     let newState = JSON.parse(JSON.stringify(state))
     newState.inputValue = action.value

@@ -5,7 +5,7 @@ import TodoListUI from './TodoListUI';
 
 class TodoList extends Component {
   constructor(props) {
-    super(props)
+    super(props)  
     this.state = store.getState()
     this.changeInputValue = this.changeInputValue.bind(this)
     this.btnClick = this.btnClick.bind(this)
